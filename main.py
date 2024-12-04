@@ -51,6 +51,11 @@ class_text.grid(row=3, column=1)
 
 photo_index = 0
 
+def clear():
+    firstname.delete(1.0, tk.END)
+    secondname.delete(1.0, tk.END)
+    class_text.delete(1.0, tk.END)
+
 def next_photo():
     global photo_index
     global image_label
@@ -59,6 +64,7 @@ def next_photo():
     image = ImageTk.PhotoImage(Image.open(files_list[photo_index]).resize((711, 430)))
     image_label.configure(image=image)
     image_label.image = image 
+    clear()
 
 def write(*args):
     f = open("data.txt", "a")
